@@ -5,7 +5,7 @@ window.addEventListener('scroll', function() {
     var maxScroll = docHeight - windowHeight;  // 最大滚动距离
 
     // 设置一个系数来控制背景的移动速度
-    var scrollSpeedFactor = 0.1;  // 背景滑动的速度系数，值越小背景移动越慢
+    var scrollSpeedFactor = 0.07;  // 背景滑动的速度系数，值越小背景移动越慢
 
     // 根据滚动距离计算背景图片的垂直位置
     var bgPositionY = Math.min((scrollY / maxScroll) * 100 * scrollSpeedFactor, 100);  // 背景图片的垂直位置
