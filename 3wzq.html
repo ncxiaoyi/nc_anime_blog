@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三色五子棋</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        canvas { background-color: #f0d9b5; cursor: pointer; }
+        #info {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        #undo-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .color-picker {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .border-radius {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>三色五子棋</h1>
+    <canvas id="board" width="660" height="660"></canvas>
+    <div id="info">
+        <p>当前玩家：<span id="current-player" style="color: black;">玩家 1 </span>&nbsp;&nbsp;&nbsp;&nbsp;当前位置：<span id="current-position">未选择</p>
+    </div>
+    <div class="color-picker">
+        <div class="border-radius">
+            <label for="player1-color">玩家 1 颜色：</label>
+            <input type="color" id="player1-color" value="#FFB6C1">
+        </div>
+        <div class="border-radius">
+            <label for="player2-color">玩家 2 颜色：</label>
+            <input type="color" id="player2-color" value="#87CEFA">
+        </div>
+        <div class="border-radius">
+            <label for="player3-color">玩家 3 颜色：</label>
+            <input type="color" id="player3-color" value="#EE82EE">
+        </div>
+    </div>
+    <button id="undo-btn">撤销</button>
+    
+    <script>
+        const canvas = document.getElementById("board");
+        const ctx = canvas.getContext("2d");
+        const gridSize = 21; // 修改为21x21大棋盘
+        const cellSize = canvas.width / gridSize;
+        const board = Array.from({ length: gridSize }, () => Array(gridSize).fill(0));
+        const history = []; // 用于记录棋盘历史（撤销功能）
+        let currentPlayer = 1;
+
+        // 默认玩家颜色
+        let playerColors = {
+            1: document.getElementById("player1-color").value,
+            2: document.getElementById("player2-color").value,
+            3: document.getElementById("player3-color").value,
+        };
+
+        // 更新颜色选择器时，更新玩家颜色
+        document.getElementById("player1-color").addEventListener("input", (event) => {
+            playerColors[1] = event.target.value;
+            if (currentPlayer === 1) {
+                document.getElementById("current-player").style.color = event.target.value;
+            }
+        });
+
+        document.getElementById("player2-color").addEventListener("input", (event) => {
+            playerColors[2] = event.target.value;
+            if (currentPlayer === 2) {
+                document.getElementById("current-player").style.color = event.target.value;
+            }
+        });
+
+        document.getElementById("player3-color").addEventListener("input", (event) => {
+            playerColors[3] = event.target.value;
+            if (currentPlayer === 3) {
+                document.getElementById("current-player").style.color = event.target.value;
+            }
+        });
+
+        function drawBoard() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // 清空画布
+            // 绘制棋盘网格
+            for (let i = 0; i < gridSize; i++) {
+                for (let j = 0; j < gridSize; j++) {
+                    ctx.strokeRect(i * cellSize, j * cellSize, cellSize, cellSize);
+                    if (board[i][j] !== 0) {
+                        ctx.fillStyle = playerColors[board[i][j]]; // 使用玩家自定义的颜色
+                        ctx.beginPath();
+                        ctx.arc(i * cellSize + cellSize / 2, j * cellSize + cellSize / 2, cellSize / 3, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            }
+
+            // 绘制坐标轴
+            ctx.font = "14px Arial";
+            ctx.fillStyle = "black";
+            for (let i = 0; i < gridSize; i++) {
+                ctx.fillText(i + 1, i * cellSize + cellSize / 3, 15); // 横坐标
+                ctx.fillText(i + 1, 5, i * cellSize + cellSize / 2); // 纵坐标
+            }
+        }
+
+        function checkWin(x, y, player) {
+            const directions = [
+                [[1, 0], [-1, 0]], 
+                [[0, 1], [0, -1]], 
+                [[1, 1], [-1, -1]], 
+                [[1, -1], [-1, 1]]
+            ];
+            
+            for (const [[dx1, dy1], [dx2, dy2]] of directions) {
+                let count = 1;
+                for (const [dx, dy] of [[dx1, dy1], [dx2, dy2]]) {
+                    let nx = x + dx, ny = y + dy;
+                    while (nx >= 0 && ny >= 0 && nx < gridSize && ny < gridSize && board[nx][ny] === player) {
+                        count++;
+                        nx += dx;
+                        ny += dy;
+                    }
+                }
+                if (count >= 5) return true;
+            }
+            return false;
+        }
+
+        function updateInfo(x, y) {
+            const positionText = `(${x + 1}, ${y + 1})`;  // 显示坐标从1开始
+            document.getElementById("current-position").textContent = positionText;
+            document.getElementById("current-player").textContent = `玩家 ${currentPlayer} (${playerColors[currentPlayer]})`;
+            document.getElementById("current-player").style.color = playerColors[currentPlayer]; // 使用玩家颜色显示
+        }
+
+        function undoMove() {
+            if (history.length > 0) {
+                const lastMove = history.pop();
+                board[lastMove.x][lastMove.y] = 0; // 撤回最后一步
+                currentPlayer = lastMove.player; // 恢复上一玩家
+                drawBoard();
+                updateInfo(lastMove.x, lastMove.y);
+            }
+        }
+
+        canvas.addEventListener("click", (event) => {
+            const x = Math.floor(event.offsetX / cellSize);
+            const y = Math.floor(event.offsetY / cellSize);
+            
+            if (board[x][y] === 0) {
+                board[x][y] = currentPlayer;
+                history.push({ x, y, player: currentPlayer }); // 记录历史
+                if (checkWin(x, y, currentPlayer)) {
+                    alert(`玩家 ${currentPlayer} 获胜！`);
+                    location.reload();
+                }
+                currentPlayer = currentPlayer % 3 + 1;
+                drawBoard();
+                updateInfo(x, y);
+            }
+        });
+
+        document.getElementById("undo-btn").addEventListener("click", undoMove); // 添加撤销功能
+
+        drawBoard();
+    </script>
+</body>
+</html>

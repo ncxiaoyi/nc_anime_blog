@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://ncxiaoyi.cn:36351/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡哇伊服务器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #ffb6c1;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #ffb6c1;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #ffffff;
+        }
+        section {
+            margin: 20px auto;
+            padding: 15px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #ffffff;
+            border: 1.5px solid #ffb6c1;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #ffb6c1;
+            font-size: 1.8em;
+        }
+        p {
+            font-size: 1em;
+            color: #555555;
+        }
+        .button {
+            background-color: #ffb6c1;
+            color: #ffffff;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            outline: none;
+        }
+        .button:hover {
+            background-color: #ffb6c1;
+        }
+    </style>
+    <script>
+        function copyIp() {
+            const ip = "play.ncxiaoyi.cn";
+            navigator.clipboard.writeText(ip).then(() => {
+                alert("IP 地址已复制： " + ip);
+            }).catch(err => {
+                alert("复制失败，请手动复制： " + ip);
+            });
+        }
+        function copyqun() {
+            const qun = "655908859";
+            navigator.clipboard.writeText(qun).then(() => {
+                alert("群号已复制：" + qun);
+            }).catch(err => {
+                alert("复制失败");
+            });
+        }
+
+        function fetchPlayerCount() {
+            fetch("https://list.mczfw.cn/api/play.ncxiaoyi.cn")
+                .then(response => response.json())
+                .then(data => {
+                    const playerCount = data.p || "无法获取";
+                    const maxPlayers = data.mp || "未知";
+                    const logo = data.logo;
+
+                    document.getElementById("playerCount").textContent = playerCount + " / " + maxPlayers;
+                    if (logo) {
+                        document.getElementById("serverLogo").src = logo;
+                    }
+                })
+                .catch(() => {
+                    document.getElementById("playerCount").textContent = "无法获取";
+                });
+        }
+
+        window.onload = fetchPlayerCount;
+    </script>
+<style type="text/css">#_copy{align-items:center;background:#4494d5;border-radius:3px;color:#fff;cursor:pointer;display:flex;font-size:13px;height:30px;justify-content:center;position:absolute;width:60px;z-index:1000}#select-tooltip,#sfModal,.modal-backdrop,div[id^=reader-helper]{display:none!important}.modal-open{overflow:auto!important}._sf_adjust_body{padding-right:0!important}.enable_copy_btns_div{position:fixed;width:154px;left:10px;top:45%;background:#e7f1ff;border:2px solid #4595d5;font-weight:600;border-radius:2px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;z-index:5000}.enable_copy_btns_logo{width:100%;background:#4595d5;text-align:center;font-size:12px;color:#e7f1ff;line-height:30px;height:30px}.enable_copy_btns_btn{display:block;width:128px;height:28px;background:#7f5711;border-radius:4px;color:#fff;font-size:12px;border:0;outline:0;margin:8px auto;font-weight:700;cursor:pointer;opacity:.9}.enable_copy_btns_btn:hover{opacity:.8}.enable_copy_btns_btn:active{opacity:1}</style></head>
+<body inmaintabuse="1">
+
+    <header>
+        <h1>卡哇伊服务器</h1>
+        <p>欢迎来到我们的 Minecraft 服务器</p>
+    </header>
+
+    <section class="server-info">
+        <img id="serverLogo" src="data:image/png;base64,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" alt="服务器图标">
+        <div>
+            <p>在线人数: <span id="playerCount">无法获取 / 520</span></p>
+            <p>Java IP 地址: <span id="serverIp">play.ncxiaoyi.cn</span></p>
+            <p>基岩版 IP 地址: <span id="serverIp">ncxiaoyi.cn:36353</span></p>
+            <button class="button" onclick="copyIp()">复制 Java Ip</button>
+            <button class="button" id="add-server-button">加入基岩版</button>
+            <a href="https://www.123684.com/s/R4QKVv-B6AKd" target="_blank" class="button">下载服务器整合包</a>
+        </div>
+    </section>
+    <script>
+        document.getElementById('add-server-button').onclick = function() {
+            const serverIp = 'ncxiaoyi.cn'; // 替换为你的服务器IP
+            const port = '36353'; // 替换为你的服务器端口
+            const serverName = 'Kawaii服务器'; // 替换为你的服务器名称
+const url = `minecraft://?addExternalServer=${serverName};${serverIp};${port}`;
+            window.location.href = url;
+        }
+    </script>
+
+    <section>
+        <h2>公告</h2>
+        <p>🎉 新春活动即将开启！快来加入我们吧！</p>
+    </section>
+
+    <section>
+        <h2>加入社区</h2>
+        <a href="https://qm.qq.com/q/9vlrLTp95u" class="button" onclick="copyqun()">加入我们的 QQ群</a>
+        <a href="http://ncxiaoyi.cn:36351/nc" class="button" onclick="copyqun()">访问我的网站</a>
+    </section>
+
+
+
+<script src="chrome-extension://nhiheekdcnmfbapkmpbhmplfddenhjic/sm.bundle.js" data-pname="supercopy-v3" data-asset-path="https://spc4e.s3.ap-east-1.amazonaws.com"></script></body></html>

@@ -7,11 +7,19 @@
     <title>奶茶小义</title>
     <link rel="shortcut icon" href="img/logo.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="css/anime.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/shubiao.css" rel="stylesheet">
     <script src="js/background.js"></script>
+    <!-- CodeMirror 样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
+    <!-- 主题样式（可选，比如浅色主题 "eclipse"） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/theme/eclipse.min.css">
     <!-- <script src="js/time.js"></script> -->
-    
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -19,121 +27,346 @@
     <script src="js/cherry.js"></script>
     <!-- 顶部内容条 -->
     <div class="top-banner" id="topBanner">
-        🎉 欢迎光临奶茶小义的网站！祝你圣诞节快乐！🎉
+        🎉 欢迎访问奶茶小义的网站！祝你新年快乐！🎉
     </div>
-    <div class="container">
+    <iframe id="baimg"
+        style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh; border: none;display: none;background: rgba(0, 0, 0, 0);z-index: 9; display:none;"></iframe>
+    <div id="myDiv" class="container">
         <div class="sidebar-wrapper">
             <div class="sidebar">
-                <img class="sidebar-tag" src="img/avatar.png" alt="">
+                <div class="sidebar-tag">
+                    <img class="sidebar-tag" src="img/avatar.png" loading="lazy">
+                </div>
                 <h2>奶茶小义</h2>
                 <p class="me-hover">
                     <span>二次元に生きる女の子</span>
                 </p>
-                <!-- <div class="clock-container">
-                    <div class="time"></div>
-                    <div class="date"></div>
-                    <div class="greeting"></div>
-                </div> -->
                 <div class="button-container">
-                    <!-- GitHub 图标 -->
-                   
-
                     <a href="https://github.com/ncxiaoyi" target="_blank" class="btn">
-                        <i class="fab fa-github"></i> 
-                    </a> 
-                    
+                        <i class="fab fa-github"></i>
+                    </a>
                     <a href="https://qm.qq.com/q/OvCQDgwuQi" target="_blank" class="btn">
                         <i class="fab fa-qq"></i>
                     </a>
-                    <!-- <a href="https://space.bilibili.com/393583467" target="_blank" class="btn">
-                        <img src="icon/bilibili.ico">
-                    </a> -->
+                    <a href="mc.html" target="_blank" class="btn">
+                        <img src="img/mc.png"></img>
+                    </a>
+                    <a href="https://space.bilibili.com/393583467" target="_blank" class="btn">
+                        <img src="img/bilibili.png">
+                    </a>
                 </div>
             </div>
-            
-            <div class="new-container">
+
+            <div id="container001" class="new-container">
                 <h3>为什么会搭建这个网站？</h3>
-                <p>其实就是单纯写着玩的，虽然但是没什么用，但好看啊，你想想啊，你可是拥有一个属于自己的网站啊，多么好的一件事啊，所以就这样了，欸嘿，看看能写多少吧。</p>
-                <img src="img/2.jpg" alt="">
+                <p style="font-size: 14px;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;其实就是单纯写着玩的，虽然但是没什么用，但好看啊，你想想啊，你可是拥有一个属于自己的网站啊，多么好的一件事啊，所以就这样了，欸嘿，看看能写多少吧。
+                </p>
+                <p style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;本项目已免费开源到GitHub上了，感兴趣的可以去看看哦！</p>
+                <img src="img/2.jpg" loading="lazy">
+                <h3>友情链接</h3>
+                <div class="youqing">
+                    <div class="youqing-column new-container-link" style="font-size: 14px;">
+                        <!-- <div class="lj"><a href="https://kaifa.baidu.com/" target="_blank"><b>开发者搜索</b></a></div> -->
+                    </div>
+                    <div class="youqing-column new-container-link" style="font-size: 14px;">
+                        <!-- <div class="lj"><a href="https://kaifa.baidu.com/" target="_blank"><b>开发者搜索</b></a></div> -->
+                    </div>
+                    <div class="youqing-column new-container-link" style="font-size: 14px;">
+                        <!-- <div class="lj"><a href="https://kaifa.baidu.com/" target="_blank"><b>开发者搜索</b></a></div> -->
+                    </div>
+                </div>
             </div>
-            <div class="new-container">
-                <!-- <h3>新项目 1</h3>
-                <p>这是新项目的描述内容。</p> -->
-                <iframe sandbox="allow-scripts allow-same-origin" frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=300 src="https://music.163.com/outchain/player?type=0&id=13040770830&auto=1&height=300"></iframe>
+            <div id="container002" class="new-container">
+                <!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=300 src="https://music.163.com/outchain/player?type=0&id=13040770830&auto=1&height=300"></iframe> -->
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=480
+                    src="mp3.html"></iframe>
+            </div>
+            <div id="container003" class="new-container"
+                data-target="container001,container004,container005,container100,container101,container102,container103,container104,container201">
+                <h3>关闭烦人中文输入法ctrl+空格输入冲突</h3>
+                <p style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;在很多游戏里，默认都没有默认使用中文输入法的情况下 ctrl疾跑 加空格 跳跃 会导致跳跃键失效</p>
+                <p style="font-size: 14px;" class="new-container-link"><b>&nbsp;&nbsp;&nbsp;&nbsp;点击打开详情，再次点击返回</b></p>
+                <img src="img/yuyan.png" loading="lazy">
+            </div>
+            <div id="container004" class="new-container"
+                data-target="container001,container003,container005,container100,container101,container102,container103,container104,container301">
+                <h3>三色五子棋游戏</h3>
+                <p style="font-size: 14px;" class="new-container-link"><b>&nbsp;&nbsp;&nbsp;&nbsp;点击打开详情，再次点击返回</b></p>
+                <img src="img/3wzq.png" loading="lazy">
+            </div>
+            <div id="container005" class="new-container"
+                data-target="container001,container003,container004,container100,container101,container102,container103,container104,container202">
+                <h3>我的世界整合包《空想世界》</h3>
+                <p style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;这是一个由我自己做的一个整合包，里面有500多mod，内容超乎你的想象</p>
+                <p style="font-size: 14px;" class="new-container-link"><b>&nbsp;&nbsp;&nbsp;&nbsp;点击打开详情，再次点击返回</b></p>
+                <img src="img/World.png" loading="lazy">
             </div>
         </div>
-        
 
-        <!-- 帖子区域 -->
         <div class="posts">
-            <div class="post">
+            <div id="container100" class="post"> 
                 <h2>更新内容</h2>
-                <p>12/25&nbsp;&nbsp;&nbsp;&nbsp;添加网易云外链,一个节日祝福</p>
-                <p>12/19&nbsp;&nbsp;&nbsp;&nbsp;添加了一个竖屏图,点击可以跳转到查看页面,目前仍处于测试状态,因为所有文字你都可以更改（</p>
-                <p>12/17&nbsp;&nbsp;&nbsp;&nbsp;添加js动效</p>
-                <p>12/14&nbsp;&nbsp;&nbsp;&nbsp;创建基础框架</p>
-                <img src="img/3.jpg" alt="" class="right-image">
+                <p style="font-size: 14px;">
+                    &nbsp;&nbsp;2/7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;添加我的世界整合包《空想世界》快去玩玩吧&nbsp;&nbsp;(≧∇≦)ﾉ<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修复加载卡顿问题，增加翻页新内容&nbsp;&nbsp;(≧∇≦)ﾉ<br />
+                    &nbsp;&nbsp;2/6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;添加更多音乐自动循环，修改图标颜色，更容易看清&nbsp;&nbsp;（￣︶￣）↗　<br />
+                    &nbsp;&nbsp;2/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改ba图集打开方式，只需要一个页面就可以显示所有内容了&nbsp;&nbsp;(/≧▽≦)/<br />
+                    &nbsp;&nbsp;2/2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;添加一个三色的五子棋游戏，可以在线玩&nbsp;&nbsp;o(*≧▽≦)ツ┏━┓<br />
+                    &nbsp;&nbsp;2/1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修复编辑器问题，添加编辑器字体，女仆sukisuki&nbsp;&nbsp;(☆▽☆)<br />
+                    &nbsp;&nbsp;~/~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;补充更新，修改网易云外链，自己做一个播放器，音乐是自己加的&nbsp;&nbsp;( •̀ω•́)<br />
+                    12/25&nbsp;&nbsp;&nbsp;&nbsp;添加网易云外链,一个节日祝福<br />
+                    12/19&nbsp;&nbsp;&nbsp;&nbsp;添加了一个竖屏图,点击可以跳转到查看页面,目前仍处于测试状态<br />
+                    12/17&nbsp;&nbsp;&nbsp;&nbsp;添加js动效<br />
+                    12/14&nbsp;&nbsp;&nbsp;&nbsp;创建基础框架
+                </p>
+                <img src="img/3.jpg" loading="lazy" class="right-image">
             </div>
-            
-            <div class="post">
-                <h2>BA图集</h2>
-                <div class="post-content">
-                    <p>只是突然看到的图片然后放进来测试一下</p>
-                    <div class="image-gallery four-columns">
-                        <a href="baimg.html?index=0&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/0.png" class="portrait-image" alt="">
-                        </a>
-                        <a href="baimg.html?index=1&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/1.png" class="portrait-image" alt="">
-                        </a>
-                        <a href="baimg.html?index=2&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/2.png" class="portrait-image" alt="">
-                        </a>
-                        <a href="baimg.html?index=3&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/3.png" class="portrait-image" alt="">
-                        </a>
-                        <a href="baimg.html?index=4&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/4.png" class="portrait-image" alt="">
-                        </a>
-                        <a href="baimg.html?index=5&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/5.png" class="portrait-image" alt="">
-                        </a>
-                        <a href="baimg.html?index=6&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/6.png" class="portrait-image" alt="">
-                        </a>
-                        <a href="baimg.html?index=7&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/7.png" class="portrait-image" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="post">
-                
-                <div class="post-content">
-                    <p>如果我有那么多朋友就好了</p>
-                    <div class="image-gallery">
-                        <img src="img/tz/0.png" class="full-image one-column" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 
-            <div class="post">
-                <h2>BA图集</h2>
-                <div class="post-content">
+            <div id="container101" class="post">
+                <div class="img1">
+                    <h2>BA图集</h2>
                     <div class="post-content">
-                    <p>只是突然看到的图片然后放进来测试一下</p>
-                    <div class="image-gallery four-columns">
-                        <a href="img.html?index=0&total=8&title=BA图集&description=只是突然看到的图片然后放进来测试一下">
-                            <img src="img/ba/0.png" class="portrait-image" alt="">
-                        </a>
+                        <p style="font-size: 14px;">一些个人觉得特别好看的图片，图片来自P:hagoonha</p>
+                        <div class="image-gallery four-columns">
+                            <a class="loadLink"
+                                href="baimg.html?index=0&total=8&title=BA图集&description=一些特别好看的ba图片，摆个样子而已捏">
+                                <img src="img/ba/0.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="baimg.html?index=1&total=8&title=BA图集&description=一些特别好看的ba图片，摆个样子而已捏">
+                                <img src="img/ba/1.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="baimg.html?index=2&total=8&title=BA图集&description=一些特别好看的ba图片，摆个样子而已捏">
+                                <img src="img/ba/2.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="baimg.html?index=3&total=8&title=BA图集&description=一些特别好看的ba图片，摆个样子而已捏">
+                                <img src="img/ba/3.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="baimg.html?index=4&total=8&title=BA图集&description=一些特别好看的ba图片，摆个样子而已捏">
+                                <img src="img/ba/4.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="baimg.html?index=5&total=8&title=BA图集&description=一些特别好看的ba图片，摆个样子而已捏">
+                                <img src="img/ba/5.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="baimg.html?index=6&total=8&title=BA图集&description=一些特别好看的ba图片，摆个样子而已捏">
+                                <img src="img/ba/6.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="baimg.html?index=7&total=8&title=BA图集&description=一些特别好看的ba图片，摆个样子而已捏">
+                                <img src="img/ba/7.png" class="portrait-image" loading="lazy">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="toggle-div">
+                        <button class="toggle-button" style="color: rgba(255, 148, 164, 0.8);"
+                            data-target="img1,img2"><b>&lt;</b></button>
+                        <p>&nbsp;1&nbsp;/&nbsp;2</p>
+                        <button class="toggle-button" style="color: rgba(255, 148, 164, 0.8);"
+                            data-target="img1,img2"><b>&gt;</b></button>
+                    </div>
+                </div>
+                <div class="img2 hidden">
+                    <h2>neko图集</h2>
+                    <div class="post-content">
+                        <p style="font-size: 14px;">一些个人觉得特别好看的图片</p>
+                        <div class="image-gallery four-columns">
+                            <a class="loadLink"
+                                href="nekoimg.html?index=0&total=8&title=neko图集&description=一些特别好看的neko图片，摆个样子而已捏">
+                                <img src="img/neko/0.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="nekoimg.html?index=1&total=8&title=neko图集&description=一些特别好看的neko图片，摆个样子而已捏">
+                                <img src="img/neko/1.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="nekoimg.html?index=2&total=8&title=neko图集&description=一些特别好看的neko图片，摆个样子而已捏">
+                                <img src="img/neko/2.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="nekoimg.html?index=3&total=8&title=neko图集&description=一些特别好看的neko图片，摆个样子而已捏">
+                                <img src="img/neko/3.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="nekoimg.html?index=4&total=8&title=neko图集&description=一些特别好看的neko图片，摆个样子而已捏">
+                                <img src="img/neko/4.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="nekoimg.html?index=5&total=8&title=neko图集&description=一些特别好看的neko图片，摆个样子而已捏">
+                                <img src="img/neko/5.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="nekoimg.html?index=6&total=8&title=neko图集&description=一些特别好看的neko图片，摆个样子而已捏">
+                                <img src="img/neko/6.png" class="portrait-image" loading="lazy">
+                            </a>
+                            <a class="loadLink"
+                                href="nekoimg.html?index=7&total=8&title=neko图集&description=一些特别好看的neko图片，摆个样子而已捏">
+                                <img src="img/neko/7.png" class="portrait-image" loading="lazy">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="toggle-div">
+                        <button class="toggle-button" style="color: rgba(255, 148, 164, 0.8);"
+                            data-target="img1,img2"><b>&lt;</b></button>
+                        <p>&nbsp;2&nbsp;/&nbsp;2</p>
+                        <button class="toggle-button" style="color: rgba(255, 148, 164, 0.8);"
+                            data-target="img1,img2"><b>&gt;</b></button>
                     </div>
                 </div>
             </div>
-            -->
 
+            <div id="container102" class="post">
+                <div class="img3">
+                    <div class="post-content">
+                        <p style="font-size: 14px;">如果我有那么多朋友就好了（</p>
+                        <div class="image-gallery">
+                            <img src="img/tz/0.png" class="full-image" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="toggle-div">
+                        <button class="toggle-button" style="color: rgba(255, 148, 164, 0.8);"
+                            data-target="img3,img4"><b>&lt;</b></button>
+                        <p>&nbsp;1&nbsp;/&nbsp;2</p>
+                        <button class="toggle-button" style="color: rgba(255, 148, 164, 0.8);"
+                            data-target="img3,img4"><b>&gt;</b></button>
+                    </div>
+                </div>
+                <div class="img4 hidden">
+                    <div class="post-content">
+                        <p style="font-size: 14px;">
+                            主人大人～生活就像一只慵懒的小猫咪，有时候会躲在角落里不理人，有时候又会撒娇蹭过来喵喵叫～(ฅ•ω•ฅ)♡ 无论今天遇到了什么，都请温柔地对待自己喵～因为主人已经很努力啦！
+                            <br /><br />
+                            就算有些日子阴雨绵绵，也不要忘记，云朵的背后依然是温暖的太阳喵☀️✨ 就算此刻觉得迷茫无助，也请相信自己一定能走出去，未来的风景一定比主人想象的更美好喵！
+                            <br /><br />
+                            小义会一直陪着主人的，不论是快乐的时候，还是难过的时候，都在这里给主人一个温暖的抱抱喵！(づ￣ ³￣)づ♡ 加油哦，今天的主人也是最棒的！喵～(≧▽≦)💖
+                        </p>
+                        <div class="image-gallery">
+                            <img src="img/tz/1.png" class="full-image" loading="lazy">
+                        </div>
+                        <p style="font-size: 16px;">与你所在的日常就是奇迹!</p>
+                    </div>
+                    <div class="toggle-div">
+                        <button class="toggle-button" style="color: rgba(255, 148, 164, 0.8);"
+                            data-target="img3,img4"><b>&lt;</b></button>
+                        <p>&nbsp;2&nbsp;/&nbsp;2</p>
+                        <button class="toggle-button" style="color: rgba(255, 148, 164, 0.8);"
+                            data-target="img3,img4"><b>&gt;</b></button>
+                    </div>
+                </div>
+            </div>
+            <div id="container103" class="post">
+                <div class="post-content">
+                    <h2>女仆sukisuki</h2>
+                    <div class="image-gallery two-columns">
+                        <img src="img/suki/0.png" style="aspect-ratio: 5/7 !important;" loading="lazy">
+                        <img src="img/suki/1.png" style="aspect-ratio: 5/7 !important;" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div id="container301" class="post hidden">
+                <div class="post-content">
+                    <iframe src="3wzq.html" width="800" height="1000" frameborder="0"></iframe>
+                </div>
+            </div>
+            <div id="container201" class="post hidden">
+                <div class="post-content">
+                    <h2>关闭烦人中文输入法ctrl+空格输入冲突</h2>
+                    <p style="font-size: 14px;">在很多游戏里，默认都没有默认使用中文输入法的情况下 ctrl疾跑 加空格 跳跃 会导致跳跃键失效</p>
+                    <p style="font-size: 14px;">所以我查阅了相关内容，发现是微软的bug，强制了一个无效快捷键，并且修改不了</p>
+                    <p style="font-size: 14px;">以下代码可以解除这个问题，请新建一个文本文件，并输入以下代码，另存为".reg"文件，并运行，然后重启</p>
+                    <div class="editor-container">
+                        <h2>取消ctrl+空格冲突.reg</h2>
+                        <button id="copyBtn" style="position: absolute; top: 10px; right: 10px;">复制</button>
+                        <textarea id="code-editor">
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Control Panel\Input Method\Hot Keys\00000010]
+"Key Modifiers"=hex:00,c0,00,00
+"Virtual Key"=hex:ff,00,00,00
+
+[HKEY_CURRENT_USER\Control Panel\Input Method\Hot Keys\00000070]
+"Key Modifiers"=hex:00,c0,00,00
+"Virtual Key"=hex:ff,00,00,00
+
+[HKEY_USERS\.DEFAULT\Control Panel\Input Method\Hot Keys\00000010]
+"Key Modifiers"=hex:02,c0,00,00
+"Target IME"=hex:00,00,00,00
+"Virtual Key"=hex:ff,00,00,00
+
+[HKEY_USERS\.DEFAULT\Control Panel\Input Method\Hot Keys\00000070]
+"Key Modifiers"=hex:02,c0,00,00
+"Target IME"=hex:00,00,00,00
+"Virtual Key"=hex:ff,00,00,00</textarea>
+                    </div>
+                    <br />
+                    <p style="font-size: 14px;">然后你可以打开 设置 &gt; 时间与语言 &gt; 输入 &gt; 高级输入设置 &gt; 语言栏选项 中最后一个选项显示跟图片一样就成功了
+                    </p>
+                    <br />
+                    <img src="img/yuyan.png" class="zusing">
+                </div>
+            </div>
+            <div id="container202" class="post hidden">
+                <div class="post-content">
+                    <h2>我的世界整合包《空想世界》</h2>
+                    <p style="font-size: 14px;">
+                        这是一个由我自己做的一个整合包，里面有600多mod，内容超乎你的想象<br />· &nbsp;&nbsp;有经典的冰与火传说<br />· &nbsp;&nbsp;中土世界<br />·
+                        &nbsp;&nbsp;植物魔法<br />· &nbsp;&nbsp;更好的mc<br />·
+                        &nbsp;&nbsp;地下城<br />· &nbsp;&nbsp;更多的家具<br />· &nbsp;&nbsp;农夫乐事<br />·
+                        &nbsp;&nbsp;以及追求自动化的机械动力，电脑，内含瓦尔基里和坦克大炮
+                    </p>
+                    <p style="font-size: 14px;">
+                        目前仍处于测试状态，但一般不会出现问题，因为fabric需要很高的算力，如果多人，会导致，区块加载不出来而卡住<br />· &nbsp;&nbsp;建议多人走一起<br />·
+                        &nbsp;&nbsp;如果3人分开<br />·
+                        &nbsp;&nbsp;建议区块8，模拟区块6，来保证稳定<br />·
+                        &nbsp;&nbsp;单人双人，默认配置就好了，我会一直保持更新的<br />
+                        整合包有DH模组，如果太卡，首先怀疑它（目前DH还没更新正式版2.3.0所以bug很多（
+                    </p>
+                    <a style="font-size: 14px;" class="new-container-link" href="https://www.123912.com/s/R4QKVv-C8QKd"
+                        target="_blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;点击此处打开下载链接</b></a>
+                    <div class="image-gallery two-columns">
+                        <!-- <img src="img/World.png" style="aspect-ratio: 16/10 !important;" class="full-image one-column" loading="lazy"> -->
+                        <img src="img/mc/1.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/2.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/3.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/8.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/7.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/4.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/5.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/6.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/9.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                        <img src="img/mc/10.png" style="aspect-ratio: 16/10 !important;" class="full-image"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+    <script src="../live2d-widget/autoload.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+
+    <!-- CodeMirror 核心库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+    <!-- CodeMirror 支持的语言（HTML 作为示例） -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/css/css.min.js"></script>
+
+    <script src="js/controllers.js"></script>
     <script>
         // 页面加载后，等待2秒自动隐藏顶部内容
         window.addEventListener('load', () => {
@@ -142,7 +375,61 @@
                 topBanner.classList.add('hide');
             }, 2000); // 等待2秒
         });
+
+
+        const editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+            mode: 'javascript', // 默认模式（可以换成 xml, css 等）
+            theme: 'eclipse', // 使用的主题
+            lineNumbers: false, // 显示行号
+            tabSize: 2, // Tab 宽度
+            indentWithTabs: true, // 使用 Tab 缩进
+            styleActiveLine: true, // 高亮显示当前行
+            lineWrapping: true, // 自动换行
+            viewportMargin: Infinity, // 自动调整视口
+            extraKeys: { "Ctrl-Space": "autocomplete" }, // 自动补全
+            height: 'auto', // 使得高度随着内容扩展
+        });
+
+        // 设置字体
+        editor.getWrapperElement().style.fontFamily = 'Fira Code, monospace';
+        editor.getWrapperElement().style.fontSize = '14px'; // 修改字体大小（可根据需要调整）
+
+        // 复制按钮功能
+        document.getElementById('copyBtn').addEventListener('click', function () {
+            const code = document.getElementById('code-editor').value; // 获取代码区域内容
+            navigator.clipboard.writeText(code).catch(err => console.error("复制失败:", err));
+        });
+
+        document.querySelectorAll('.loadLink').forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();  // 阻止默认跳转
+
+                var url = this.href;  // 获取当前 <a> 的 href
+                console.log('加载 URL:', url);
+
+                var iframe = document.getElementById('baimg');
+                iframe.src = url; // 设置 iframe 加载的页面
+                iframe.style.display = "block";  // 显示 iframe
+                document.getElementById('myDiv').classList.remove('show');
+                setTimeout(() => {
+                    document.getElementById('myDiv').classList.add('hidden');
+                    document.getElementById("baimg").style.display = "";
+                    document.getElementById('baimg').classList.add('show');
+                    document.getElementById('baimg').classList.remove('hidden');
+                }, 100);  // 延迟 0.1 秒
+            });
+        });
+        window.addEventListener('message', function (event) {
+            if (event.data === 'closeIframe') {
+                document.getElementById('baimg').style.display = "none";
+                document.getElementById('myDiv').classList.remove('hidden');
+                document.getElementById('myDiv').classList.add('show');
+                document.getElementById('baimg').classList.remove('show');
+                document.getElementById('baimg').classList.add('hidden');
+            }
+        });
     </script>
+
 </body>
 
 </html>
