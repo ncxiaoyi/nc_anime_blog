@@ -1,97 +1,141 @@
+a {
+    text-decoration: none;
+    /* 去掉下划线 */
+    color: inherit;
+    /* 使用继承的颜色（通常是父元素的颜色） */
+}
+
+.hidden {
+    display: none;
+    /* 隐藏容器 */
+}
 
 /* 页面整体样式 */
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-image: url('../img/background.jpg');
-    background-size: 100% auto; /* 背景宽度适应屏幕宽度，高度自动 */
-    background-position: center top; /* 初始背景位置为顶部 */
-    background-attachment: scroll; /* 背景随页面滚动 */
-     background-size: cover;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url('../img/background1.jpg');
+    background-size: 100% auto;
+    /* 背景宽度适应屏幕宽度，高度自动 */
+    background-position: center top;
+    /* 初始背景位置为顶部 */
+    background-attachment: scroll;
+    /* 背景随页面滚动 */
+    background-size: cover;
     color: #333;
     overflow-x: hidden;
-    height: 200%; /* 使页面高度更长，便于滚动 */
+    height: 200%;
+    /* 使页面高度更长，便于滚动 */
 }
+
 /* 顶部内容条样式 */
 .top-banner {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 182, 193, 0.9); /* 粉色半透明 */
+    background-color: rgba(255, 182, 193, 0.8);
+    /* 粉色半透明 */
     color: white;
     text-align: center;
     padding: 10px;
     font-size: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    transition: transform 0.5s ease, opacity 0.5s ease; /* 动画效果 */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    /* 动画效果 */
 }
 
 /* 隐藏状态的样式 */
 .top-banner.hide {
-    transform: translateY(-100%); /* 向上隐藏 */
-    opacity: 0; /* 淡出效果 */
+    transform: translateY(-100%);
+    /* 向上隐藏 */
+    opacity: 0;
+    /* 淡出效果 */
 }
+
 /* 页面整体样式 */
 .container {
     display: flex;
-    justify-content: space-between; /* 左右两部分对齐 */
-    align-items: flex-start; /* 顶部对齐 */
-    max-width: 1200px; /* 容器最大宽度 */
+    justify-content: space-between;
+    /* 左右两部分对齐 */
+    align-items: flex-start;
+    /* 顶部对齐 */
+    max-width: 1200px;
+    /* 容器最大宽度 */
     margin: 150px auto 20px;
-    gap: 20px; /* 左右间距 */
+    gap: 20px;
+    /* 左右间距 */
 }
 
 /* 左侧栏按钮容器 */
 .button-container {
     display: flex;
-    justify-content: center; /* 居中排列按钮 */
-    gap: 15px; /* 按钮之间的间隔 */
-    margin-top: 20px; /* 为按钮区域留出顶部空间 */
+    justify-content: center;
+    /* 居中排列按钮 */
+    gap: 15px;
+    /* 按钮之间的间隔 */
+    margin-top: 20px;
+    /* 为按钮区域留出顶部空间 */
 }
 
 /* 按钮样式 */
 .btn {
     display: inline-block;
-    width: 40px; /* 按钮的宽度 */
-    height: 40px; /* 按钮的高度 */
-    border-radius: 30%; /* 完全圆形 */
-    background-color: rgba(255, 255, 255, 0.0); /* 按钮背景颜色 */
-    color: white; /* 按钮图标颜色 */
-    text-align: center; /* 图标居中 */
-    line-height: 40px; /* 垂直居中 */
-    font-size: 18px; /* 图标的字体大小 */
-    text-decoration: none; /* 去除链接下划线 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* 过渡效果 */
+    width: 40px;
+    /* 按钮的宽度 */
+    height: 40px;
+    /* 按钮的高度 */
+    border-radius: 30%;
+    /* 完全圆形 */
+    background-color: rgba(255, 255, 255, 0.0);
+    /* 按钮背景颜色 */
+    color: #ffb6c1e6;
+    /* 按钮图标颜色 */
+    text-align: center;
+    /* 图标居中 */
+    line-height: 40px;
+    /* 垂直居中 */
+    vertical-align: middle;
+    font-size: 18px;
+    /* 图标的字体大小 */
+    text-decoration: none;
+    /* 去除链接下划线 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 阴影效果 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* 过渡效果 */
     border: none;
 }
 
-.btn img{
-    width: 30px; /* 按钮的宽度 */
-    height: 30px; /* 按钮的高度 */
-}
-
-.sidebar img:hover {
-    transform: scale(1.2); /* 悬停时放大 */
+.btn img {
+    width: 30px;
+    /* 按钮的宽度 */
+    height: 30px;
+    /* 按钮的高度 */
+    vertical-align: middle;
 }
 
 /* 鼠标悬停时的效果 */
 .btn:hover {
-    background-color: rgba(255, 192, 215, 0.5); /* 悬停时背景颜色 */
-    transform: translateY(-3px); /* 向上浮动效果 */
+    background-color: rgba(255, 192, 215, 0.5);
+    /* 悬停时背景颜色 */
+    transform: translateY(-3px);
+    /* 向上浮动效果 */
 }
 
 /* 鼠标按下时的效果 */
 .btn:active {
-    transform: translateY(1px); /* 按下时按钮稍微下沉 */
+    transform: translateY(1px);
+    /* 按下时按钮稍微下沉 */
 }
 
 
 /* 左侧栏样式 */
 .sidebar {
-    width: 100%; /* 撑满父容器 */
+    width: 100%;
+    /* 撑满父容器 */
     background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -103,10 +147,14 @@ body {
 /* 左侧栏包裹容器样式 */
 .sidebar-wrapper {
     display: flex;
-    flex-direction: column; /* 垂直排列 */
-    width: 25%; /* 固定宽度，与 .sidebar 和父容器一致 */
-    gap: 20px; /* 上下间距 */
-    align-items: stretch; /* 子元素宽度自动撑满 */
+    flex-direction: column;
+    /* 垂直排列 */
+    width: 25%;
+    /* 固定宽度，与 .sidebar 和父容器一致 */
+    gap: 20px;
+    /* 上下间距 */
+    align-items: stretch;
+    /* 子元素宽度自动撑满 */
 }
 
 
@@ -115,15 +163,24 @@ body {
     width: 184.12px;
     height: 134.84px;
     transition: transform 0.3s ease;
+    margin: 0 auto;
+
+}
+
+.sidebar-tag img:hover {
+    transform: scale(1.2);
+    /* 悬停时放大 */
 }
 
 /* 时钟容器的样式 */
 .clock-container {
-    background: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+    background: rgba(255, 255, 255, 0.8);
+    /* 半透明背景 */
     border-radius: 20px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* 拟态效果 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* 拟态效果 */
 }
 
 .time {
@@ -164,59 +221,88 @@ body {
 .me-hover span {
     margin: 0 auto;
     display: block;
-    border-right: .08em solid #fff; /* 光标颜色更明显 */
-    width: 28ch; /* 对应字符长度 */
-    white-space: nowrap; /* 文本不换行 */
-    overflow: hidden; /* 超出范围的文本隐藏 */
-    animation: typing 3s steps(28, end), blink-caret .5s step-end infinite alternate; /* 动画时长可调整 */
+    border-right: .08em solid #fff;
+    /* 光标颜色更明显 */
+    width: 28ch;
+    /* 对应字符长度 */
+    white-space: nowrap;
+    /* 文本不换行 */
+    overflow: hidden;
+    /* 超出范围的文本隐藏 */
+    animation: typing 3s steps(28, end), blink-caret .5s step-end infinite alternate;
+    /* 动画时长可调整 */
 }
 
 @keyframes typing {
-    from { width: 0; }
-    to { width: 28ch; }
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 28ch;
+    }
 }
 
 @keyframes blink-caret {
-    from { border-right-color: transparent; }
-    to { border-right-color: white; }
+    from {
+        border-right-color: transparent;
+    }
+
+    to {
+        border-right-color: white;
+    }
 }
 
 /* 新容器样式 */
 .new-container {
-    width: 100%; /* 宽度与父容器一致 */
+    width: 100%;
+    /* 宽度与父容器一致 */
     margin-left: 1.5%;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 15px;
     text-align: left;
-    position: relative; /* 为图片的绝对定位提供锚点 */
-    overflow: hidden; /* 确保图片不会溢出容器 */
+    position: relative;
+    /* 为图片的绝对定位提供锚点 */
+    overflow: hidden;
+    /* 确保图片不会溢出容器 */
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 /* 添加图片样式 */
 .new-container img {
-    width: 100%; /* 图片宽度填满容器 */
-    height: auto; /* 保持图片比例 */
-    aspect-ratio: 3 / 2; /* 强制图片为3:2比例 */
-    object-fit: cover; /* 图片裁剪以适应容器 */
-    border-radius: 15px; /* 图片边缘圆角 */
-    transition: transform 0.3s ease; /* 添加悬停动画 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 图片阴影效果 */
+    width: 100%;
+    /* 图片宽度填满容器 */
+    height: auto;
+    /* 保持图片比例 */
+    aspect-ratio: 3 / 2;
+    /* 强制图片为3:2比例 */
+    object-fit: cover;
+    /* 图片裁剪以适应容器 */
+    border-radius: 15px;
+    /* 图片边缘圆角 */
+    transition: transform 0.3s ease;
+    /* 添加悬停动画 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 图片阴影效果 */
 }
 
 .new-container iframe {
-    transition: transform 0.3s ease; /* 添加悬停动画 */
+    transition: transform 0.3s ease;
+    /* 添加悬停动画 */
 }
 
 .new-container iframe:hover {
-    transform: scale(1.1); /* 悬停时放大 */
+    transform: scale(1.05);
+    /* 悬停时放大 */
 }
 
 /* 悬停放大效果 */
 .new-container img:hover {
-    transform: scale(1.1); /* 悬停时放大 */
+    transform: scale(1.1);
+    /* 悬停时放大 */
 }
 
 /* 针对 new-container 内的文字优化 */
@@ -224,21 +310,30 @@ body {
 .new-container h1,
 .new-container h2,
 .new-container h3 {
-    margin: 5px 0; /* 统一上下外边距为 5px */
-    line-height: 1.4; /* 减小行高 */
+    margin: 5px 0;
+    /* 统一上下外边距为 5px */
+    line-height: 1.4;
+    /* 减小行高 */
 }
 
 .new-container p {
-    font-size: 14px; /* 调整段落字体大小 */
+    font-size: 14px;
+    /* 调整段落字体大小 */
 }
 
-.new-container h1, 
-.new-container h2, 
+.new-container h1,
+.new-container h2,
 .new-container h3 {
-    font-size: 16px; /* 适中标题大小 */
-    font-weight: bold; /* 加粗标题字体 */
+    font-size: 16px;
+    /* 适中标题大小 */
+    font-weight: bold;
+    /* 加粗标题字体 */
 }
 
+.new-container-link {
+    color: rgba(255, 148, 164, 0.8);
+    transition: transform 0.3s ease;
+}
 
 /* 右侧帖子容器样式 */
 .posts {
@@ -254,7 +349,8 @@ body {
 
 /* 帖子容器样式 */
 .post {
-    position: relative; /* 设置相对定位，为右侧图片提供锚点 */
+    position: relative;
+    /* 设置相对定位，为右侧图片提供锚点 */
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     padding: 20px;
@@ -283,83 +379,117 @@ body {
 /* 帖子内容样式 */
 .post-content {
     display: flex;
-    flex-direction: column; /* 内容竖向排列 */
+    flex-direction: column;
+    /* 内容竖向排列 */
 }
 
 /* 单个图片样式：放在容器右边并自适应高度 */
 .post .right-image {
-    position: absolute; /* 绝对定位 */
-    top: 20px; /* 距离容器顶部的间距，与 padding 保持一致 */
-    right: 20px; /* 距离容器右边的间距，与 padding 保持一致 */
-    height: calc(100% - 40px); /* 动态调整高度：容器总高度减去上下间距 */
-    width: auto; /* 保持宽高比例 */
-    object-fit: contain; /* 确保图片内容自适应 */
-    border-radius: 10px; /* 图片圆角效果 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加图片阴影 */
-    transition: transform 0.3s; /* 添加悬停时的动画过渡 */
+    position: absolute;
+    /* 绝对定位 */
+    top: 20px;
+    /* 距离容器顶部的间距，与 padding 保持一致 */
+    right: 20px;
+    /* 距离容器右边的间距，与 padding 保持一致 */
+    height: calc(100% - 60px);
+    /* 动态调整高度：容器总高度减去上下间距 */
+    width: auto;
+    /* 保持宽高比例 */
+    object-fit: contain;
+    /* 确保图片内容自适应 */
+    border-radius: 10px;
+    /* 图片圆角效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 添加图片阴影 */
+    transition: transform 0.3s;
+    /* 添加悬停时的动画过渡 */
 }
 
 /* 鼠标悬停时的放大效果 */
 .post .right-image:hover {
-    transform: scale(1.3); /* 放大 10% */
+    transform: scale(1.1);
+    /* 放大 10% */
 }
 
 /* 多图片集样式 */
 .post-content .image-gallery {
-    display: grid; /* 使用网格布局 */
-    gap: 10px; /* 图片之间的间距 */
-    margin-top: 10px; /* 图片集与文字内容的间距 */
-    width: 100%; /* 图片集宽度为父容器的100% */
-    max-width: 100%; /* 确保填满容器 */
+    display: grid;
+    /* 使用网格布局 */
+    gap: 10px;
+    /* 图片之间的间距 */
+    margin-top: 10px;
+    /* 图片集与文字内容的间距 */
+    width: 100%;
+    /* 图片集宽度为父容器的100% */
+    max-width: 100%;
+    /* 确保填满容器 */
 }
 
 /* 1列布局 */
 .post-content .image-gallery.one-column {
-    grid-template-columns: 1fr; /* 每行1张图片 */
+    grid-template-columns: 1fr;
+    /* 每行1张图片 */
 }
 
 /* 2列布局 */
 .post-content .image-gallery.two-columns {
-    grid-template-columns: repeat(2, 1fr); /* 每行2张图片，宽度均分 */
+    grid-template-columns: repeat(2, 1fr);
+    /* 每行2张图片，宽度均分 */
 }
 
 /* 3列布局 */
 .post-content .image-gallery.three-columns {
-    grid-template-columns: repeat(3, 1fr); /* 每行3张图片，宽度均分 */
+    grid-template-columns: repeat(3, 1fr);
+    /* 每行3张图片，宽度均分 */
 }
 
 /* 4列布局 - 新增的样式 */
 .post-content .image-gallery.four-columns {
-    grid-template-columns: repeat(4, 1fr); /* 每行4张图片，宽度均分 */
+    grid-template-columns: repeat(4, 1fr);
+    /* 每行4张图片，宽度均分 */
 }
 
 .post-content .image-gallery .regular-image {
-    aspect-ratio: 3 / 2; /* 保持 3:2 横向比例 */
+    aspect-ratio: 3 / 2;
+    /* 保持 3:2 横向比例 */
 }
 
 .post-content .image-gallery .portrait-image {
-    aspect-ratio: 2 / 3; /* 保持 3:2 横向比例 */
+    aspect-ratio: 2 / 3;
+    /* 保持 3:2 横向比例 */
 }
 
 .post-content .image-gallery .full-image {
-    aspect-ratio: 4 / 2; /* 保持 3:2 横向比例 */
+    aspect-ratio: 4 / 2;
+    /* 保持 3:2 横向比例 */
 }
 
 /* 多图片中的单张图片样式 */
 .post-content .image-gallery img {
-    width: 100%; /* 图片宽度填充网格单元格 */
-    height: auto; /* 按比例缩放高度 */
-    object-fit: cover; /* 确保图片不变形 */
-    border-radius: 10px; /* 圆角效果 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 图片阴影效果 */
-    transition: transform 0.3s;
-    
+    width: 100%;
+    /* 图片宽度填充网格单元格 */
+    height: auto;
+    /* 按比例缩放高度 */
+    object-fit: cover;
+    /* 确保图片不变形 */
+    border-radius: 10px;
+    /* 圆角效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 图片阴影效果 */
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+    backface-visibility: hidden;
+    /* 防止渲染闪烁 */
+    z-index: 1;
+    /* 默认层级 */
+
 }
 
 /* 鼠标悬停效果 */
 .post-content .image-gallery img:hover {
-    transform: scale(1.1); /* 鼠标悬停时放大图片 */
-    transition: transform 0.3s; /* 鼠标悬停动画 */
+    z-index: 10;
+    transform: scale(1.1);
+    /* 鼠标悬停时放大图片 */
 }
 
 /* 给每个容器添加动画 */
@@ -374,17 +504,29 @@ body {
     transform: translateY(30px);
 }
 
-.container {animation-delay: 0s;}
+.container {
+    animation-delay: 0s;
+}
 
-.sidebar-wrapper {animation-delay: 0.3s;}
+.sidebar-wrapper {
+    animation-delay: 0.3s;
+}
 
-.sidebar {animation-delay: 0.5s;}
+.sidebar {
+    animation-delay: 0.5s;
+}
 
-.new-container {animation-delay: 0.7s;}
+.new-container {
+    animation-delay: 0.7s;
+}
 
-.posts {animation-delay: 1s;}
+.posts {
+    animation-delay: 1s;
+}
 
-.post {animation-delay: 1.2s;}
+.post {
+    animation-delay: 1.2s;
+}
 
 /* 飞上来的动画 */
 @keyframes slideUp {
@@ -392,6 +534,7 @@ body {
         transform: translateY(30px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -402,15 +545,147 @@ body {
 .sidebar:hover,
 .new-container:hover,
 .post:hover {
-    transform: translateY(-5px); /* 向上浮动5px */
-    transition: transform 0.3s ease; /* 添加过渡效果 */
+    transform: translateY(-5px);
+    /* 向上浮动5px */
+    transition: transform 0.3s ease;
+    /* 添加过渡效果 */
 }
 
 /* 动画结束后的修复：确保悬停动画有效 */
 .sidebar,
 .new-container,
 .post {
-    animation: none; /* 移除动画 */
-    opacity: 1; /* 确保可见 */
-    transform: translateY(0); /* 确保位置正确 */
+    animation: none;
+    /* 移除动画 */
+    opacity: 1;
+    /* 确保可见 */
+    transform: translateY(0);
+    /* 确保位置正确 */
+}
+
+.editor-container {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-top: 0;
+    /* 去除默认的上边距 */
+    padding-top: 10px;
+    /* 根据需要设置 padding */
+    position: relative;
+    /* 使按钮定位在该容器内 */
+    height: auto;
+}
+
+.CodeMirror {
+    height: auto;
+    background-color: #00000000 !important;
+    /* 设置背景透明 */
+    font-family: 'Fira Code', monospace;
+    font-feature-settings: "liga" 1;
+    /* 启用连字 */
+    height: auto !important;
+    /* 强制编辑器根据内容自动扩展 */
+    overflow: hidden;
+    /* 禁止出现滚动条 */
+}
+
+.zusing {
+    width: 50%;
+    height: auto;
+    border-radius: 10px
+}
+
+#copyBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+    /* 保证按钮位于最上方 */
+}
+
+.toggle-div {
+    position: relative;
+    top: 10px;
+    /* 向下移动 10 像素 */
+    width: 70px;
+    height: 25px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    display: flex;
+    text-align: center;
+
+
+}
+
+.toggle-button {
+    width: 20px;
+    /* 按钮的宽度 */
+    height: 20px;
+    /* 按钮的高度 */
+    border-radius: 50%;
+    /* 让按钮变成圆形 */
+    background-color: transparent;
+    /* 完全透明 */
+    border: 2px solid rgba(0, 0, 0, 0);
+    /* 半透明边框 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* align-items: center;
+    justify-content: center;
+    margin-left: auto; */
+}
+
+.youqing {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.youqing-column {
+    flex: 1;
+    /* 平分宽度 */
+    /* padding: 20px; */
+    text-align: center;
+}
+
+.youqing-column .lj>a {
+    position: relative;
+}
+
+.youqing-column .lj>a:after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #ffaec9;
+    ;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    transition: all.3s;
+}
+
+.youqing-column .lj>a:hover:after {
+    left: 0%;
+    width: 100%;
+}
+
+
+#live2d-widget {
+    right: 0 !important;
+    left: auto !important;
+    bottom: 0 !important;
+    position: fixed !important;
+    z-index: 99999 !important;
 }

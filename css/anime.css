@@ -1,0 +1,53 @@
+#myDiv {
+    visibility: visible;
+    z-index: 10;
+    /* 默认可见并在前面 */
+    transition: opacity 0.3s ease-in-out;
+    /* 保持动画效果 */
+}
+
+#myDiv.hidden {
+    visibility: hidden;
+    z-index: -1;
+    /* 隐藏时放到后面 */
+}
+
+/* 默认显示 myDiv 和 iframe */
+#myDiv,
+#baimg {
+    transition: opacity 0.5s ease, filter 0.5s ease;
+    /* 动画过渡效果 */
+}
+
+/* 隐藏时的样式（模糊和透明） */
+#myDiv.hidden,
+#baimg.hidden {
+    opacity: 0;
+    filter: blur(1px);
+    /* 模糊 */
+    pointer-events: none;
+    /* 防止点击 */
+}
+
+/* 显示时的样式（去掉模糊和恢复透明度） */
+#myDiv.show,
+#baimg.show {
+    opacity: 1;
+    filter: blur(0);
+    /* 去掉模糊 */
+    pointer-events: auto;
+    /* 恢复点击 */
+}
+
+/* 初始隐藏 baimg */
+#baimg {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* 显示 baimg 时，增加透明度 */
+#baimg.show {
+    opacity: 1;
+    display: block;
+}
