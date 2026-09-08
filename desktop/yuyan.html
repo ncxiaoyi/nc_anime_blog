@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奶茶小义</title>
+    <link rel="shortcut icon" href="../img/logo.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/shubiao.css" rel="stylesheet">
+    <script src="../js/background.js"></script>
+    <!-- CodeMirror 样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
+    <!-- 主题样式（可选，比如浅色主题 "eclipse"） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/theme/eclipse.min.css">
+    <style>
+        .editor-container {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .CodeMirror {
+            height: auto;
+        }
+        .zusing{
+            width: 50%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../js/cherry.js"></script>
+    <div class="top-banner" id="topBanner">
+        🎉 欢迎访问奶茶小义的网站！祝你圣诞节快乐！🎉
+    </div>
+    <div class="container">
+        <div class="sidebar-wrapper">
+            <div class="sidebar">
+                <div class="sidebar-tag">
+                    <img class="sidebar-tag" src="../img/avatar.png" alt="">
+                </div>
+                <h2>奶茶小义</h2>
+                <p class="me-hover">
+                    <span>二次元に生きる女の子</span>
+                </p>
+                <div class="button-container">
+                    <a href="https://github.com/ncxiaoyi" target="_blank" class="btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://qm.qq.com/q/OvCQDgwuQi" target="_blank" class="btn">
+                        <i class="fab fa-qq"></i>
+                    </a>
+                    <a href="http://ncxiaoyi.cn:36351" target="_blank" class="btn">
+                        <img src="../img/mc.png"></img>
+                    </a>
+                    <a href="https://space.bilibili.com/393583467" target="_blank" class="btn">
+                        <img src="../img/bilibili.png">
+                    </a>
+                </div>
+            </div>
+
+            <div class="new-container">
+                <h3>关闭烦人中文输入法ctrl+空格输入冲突</h3>
+
+                <img src="../img/2.jpg" alt="">
+            </div>
+            <div class="new-container">
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=520
+                    src="../mp3.html"></iframe>
+            </div>
+        </div>
+
+        <div class="posts">
+            <div class="post">
+                <h2>关闭烦人中文输入法ctrl+空格输入冲突</h2>
+                <p style="font-size: 14px;">在很多游戏里，默认都没有默认使用中文输入法的情况下 ctrl疾跑 加空格 跳跃 会导致跳跃键失效</p>
+                <p style="font-size: 14px;">所以我查阅了相关内容，发现是微软的bug，强制了一个无效快捷键，并且修改不了</p>
+                <p style="font-size: 14px;">以下代码可以解除这个问题，请新建一个文本文件，并输入以下代码，另存为".reg"文件，并运行</p>
+
+                <div class="editor-container">
+                    <h3>取消ctrl+空格冲突.reg</h3>
+                    <textarea id="code-editor">
+Windows Registry Editor Version 5.00
+                        
+[HKEY_CURRENT_USER\Control Panel\Input Method\Hot Keys\00000010]
+"Key Modifiers"=hex:00,c0,00,00
+"Virtual Key"=hex:ff,00,00,00
+                        
+[HKEY_CURRENT_USER\Control Panel\Input Method\Hot Keys\00000070]
+"Key Modifiers"=hex:00,c0,00,00
+"Virtual Key"=hex:ff,00,00,00
+                        
+[HKEY_USERS\.DEFAULT\Control Panel\Input Method\Hot Keys\00000010]
+"Key Modifiers"=hex:02,c0,00,00
+"Target IME"=hex:00,00,00,00
+"Virtual Key"=hex:ff,00,00,00
+                        
+[HKEY_USERS\.DEFAULT\Control Panel\Input Method\Hot Keys\00000070]
+"Key Modifiers"=hex:02,c0,00,00
+"Target IME"=hex:00,00,00,00
+"Virtual Key"=hex:ff,00,00,00
+                    </textarea>
+                </div>
+                <br />
+                <p style="font-size: 14px;">然后你可以打开 设置 &gt; 时间与语言 &gt; 输入 &gt; 高级输入设置 &gt; 语言栏选项 中最后一个选项就是</p>
+                <br />
+                <img src="../img/yuyan.png" class="zusing">
+            </div>
+        </div>
+    </div>
+    <!-- CodeMirror 核心库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+    <!-- CodeMirror 支持的语言（HTML 作为示例） -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/css/css.min.js"></script>
+    <script>
+        // 页面加载后，等待2秒自动隐藏顶部内容
+        window.addEventListener('load', () => {
+            const topBanner = document.getElementById('topBanner');
+            setTimeout(() => {
+                topBanner.classList.add('hide');
+            }, 2000); // 等待2秒
+        });
+
+        const editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+            mode: 'javascript', // 默认模式（可以换成 xml, css 等）
+            theme: 'eclipse', // 使用的主题
+            lineNumbers: true, // 显示行号
+            tabSize: 2, // Tab 宽度
+            indentWithTabs: true, // 使用 Tab 缩进
+        });
+
+    </script>
+</body>
+
+</html>
